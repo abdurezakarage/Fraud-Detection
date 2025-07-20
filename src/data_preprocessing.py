@@ -24,14 +24,7 @@ class DataPreprocessor:
         self.credit_card_data = None
         
     def load_data(self, fraud_path: str, ip_country_path: str, credit_card_path: str) -> None:
-        """
-        Load all datasets for preprocessing.
-        
-        Args:
-            fraud_path: Path to Fraud_Data.csv
-            ip_country_path: Path to IpAddress_to_Country.csv
-            credit_card_path: Path to creditcard.csv
-        """
+      
         logger.info("Loading datasets...")
         
         try:
