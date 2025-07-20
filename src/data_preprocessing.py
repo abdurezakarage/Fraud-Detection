@@ -1,7 +1,3 @@
-"""
-Data Preprocessing Module for Fraud Detection
-Handles missing values, data cleaning, and dataset merging for geolocation analysis.
-"""
 
 import pandas as pd
 import numpy as np
@@ -13,10 +9,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 class DataPreprocessor:
-    """
-    Comprehensive data preprocessing class for fraud detection datasets.
-    Handles missing values, data cleaning, and geolocation analysis.
-    """
+  
     
     def __init__(self):
         self.fraud_data = None
@@ -42,16 +35,7 @@ class DataPreprocessor:
             raise
     
     def handle_missing_values(self, df: pd.DataFrame, strategy: str = 'drop') -> pd.DataFrame:
-        """
-        Handle missing values in the dataset.
-        
-        Args:
-            df: Input dataframe
-            strategy: 'drop' to remove rows with missing values, 'impute' to fill them
-            
-        Returns:
-            DataFrame with handled missing values
-        """
+    
         logger.info(f"Handling missing values using strategy: {strategy}")
         
         if strategy == 'drop':
@@ -79,15 +63,7 @@ class DataPreprocessor:
         return df_cleaned
     
     def remove_duplicates(self, df: pd.DataFrame) -> pd.DataFrame:
-        """
-        Remove duplicate rows from the dataset.
-        
-        Args:
-            df: Input dataframe
-            
-        Returns:
-            DataFrame with duplicates removed
-        """
+    
         initial_count = len(df)
         df_cleaned = df.drop_duplicates()
         removed_count = initial_count - len(df_cleaned)
@@ -96,15 +72,7 @@ class DataPreprocessor:
         return df_cleaned
     
     def correct_data_types(self, df: pd.DataFrame) -> pd.DataFrame:
-        """
-        Correct data types for optimal processing.
-        
-        Args:
-            df: Input dataframe
-            
-        Returns:
-            DataFrame with corrected data types
-        """
+
         df_cleaned = df.copy()
         
         # Convert timestamp columns to datetime
@@ -127,15 +95,7 @@ class DataPreprocessor:
         return df_cleaned
     
     def convert_ip_to_integer(self, ip_address: str) -> int:
-        """
-        Convert IP address string to integer for comparison.
-        
-        Args:
-            ip_address: IP address string (e.g., "192.168.1.1")
-            
-        Returns:
-            Integer representation of IP address
-        """
+    
         try:
             parts = ip_address.split('.')
             return sum(int(part) << (24 - 8 * i) for i, part in enumerate(parts))
@@ -143,12 +103,7 @@ class DataPreprocessor:
             return 0
     
     def merge_with_geolocation(self) -> pd.DataFrame:
-        """
-        Merge fraud data with IP country mapping for geolocation analysis.
-        
-        Returns:
-            Merged DataFrame with country information
-        """
+      
         if self.fraud_data is None or self.ip_country_data is None:
             raise ValueError("Data not loaded. Call load_data() first.")
         

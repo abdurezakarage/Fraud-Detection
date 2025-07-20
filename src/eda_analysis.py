@@ -25,13 +25,13 @@ class EDAAnalyzer:
         self.analysis_results: Dict = {}
         
     def load_data(self, fraud_data: pd.DataFrame, credit_card_data: Optional[pd.DataFrame] = None):
-        """Load data for EDA analysis"""
+    
         self.fraud_data = fraud_data
         self.credit_card_data = credit_card_data
         logger.info("Data loaded for EDA analysis")
     
     def _detect_target_column(self, df: pd.DataFrame) -> str:
-        """Detect the target column name (class or Class)"""
+     
         if 'class' in df.columns:
             return 'class'
         elif 'Class' in df.columns:
@@ -85,7 +85,7 @@ class EDAAnalyzer:
         return df_copy
         
     def analyze_class_distribution(self, df: pd.DataFrame, target_col: Optional[str] = None) -> Dict:
-        """Analyze class distribution in the dataset"""
+     
         logger.info("Analyzing class distribution...")
         
         # Detect target column if not provided
@@ -117,7 +117,7 @@ class EDAAnalyzer:
     
     def plot_class_distribution(self, df: pd.DataFrame, target_col: Optional[str] = None, 
                               save_path: Optional[str] = None) -> None:
-        """Plot class distribution"""
+    
         # Detect target column if not provided
         if target_col is None:
             target_col = self._detect_target_column(df)
@@ -418,7 +418,7 @@ class EDAAnalyzer:
     
     def plot_geographic_patterns(self, df: pd.DataFrame, country_col: str = 'country', 
                                save_path: Optional[str] = None) -> None:
-        """Plot geographic patterns"""
+      
         geo_analysis = self.analyze_geographic_patterns(df, country_col)
         
         if not geo_analysis:
@@ -452,7 +452,7 @@ class EDAAnalyzer:
         plt.show()
     
     def analyze_feature_correlations(self, df: pd.DataFrame, target_col: Optional[str] = None) -> pd.DataFrame:
-        """Analyze feature correlations with target"""
+     
         logger.info("Analyzing feature correlations...")
         
         # Detect target column if not provided
@@ -487,7 +487,7 @@ class EDAAnalyzer:
     
     def plot_correlation_heatmap(self, df: pd.DataFrame, target_col: Optional[str] = None, 
                                save_path: Optional[str] = None) -> None:
-        """Plot correlation heatmap"""
+  
         # Detect target column if not provided
         if target_col is None:
             target_col = self._detect_target_column(df)
@@ -517,7 +517,7 @@ class EDAAnalyzer:
         plt.show()
     
     def comprehensive_analysis(self, df: pd.DataFrame, save_dir: Optional[str] = None) -> Dict:
-        """Perform comprehensive EDA analysis"""
+    
         logger.info("Starting comprehensive EDA analysis...")
         
         results = {}
@@ -591,7 +591,7 @@ class EDAAnalyzer:
         return results
     
     def generate_insights_report(self, analysis_results: Dict) -> str:
-        """Generate insights report from analysis results"""
+     
         logger.info("Generating insights report...")
         
         report = []
