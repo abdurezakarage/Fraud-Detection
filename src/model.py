@@ -6,6 +6,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import f1_score, confusion_matrix, average_precision_score, precision_recall_curve
 import matplotlib.pyplot as plt
 import warnings
+import joblib
+import os
 warnings.filterwarnings('ignore')
 
 class FraudModelTrainer:
@@ -109,3 +111,16 @@ class FraudModelTrainer:
         # Returns the name of the best model based on AUC-PR, then F1
         best = max(self.results.items(), key=lambda x: (x[1]['auc_pr'] if x[1]['auc_pr'] is not None else 0, x[1]['f1_score']))
         return best[0], self.results[best[0]]
+
+    def save_best_model(self, output_path='models/best_model.joblib'):
+        """Save the best-performing model and its feature names to disk in the models directory."""
+        os.makedirs('models', exist_ok=True)
+        best_name, _ = self.best_model()
+        best_model = self.trained_models[best_name]
+        # Save model
+        joblib.dump(best_model, output_path)
+        # Save feature names
+        feature_names = self.X_train.columns.tolist()
+        joblib.dump(feature_names, '../models/model_features.joblib')
+        print(f"Best model ('{best_name}') saved to {output_path}.")
+        print(f"Feature names saved to models/model_features.joblib.")
