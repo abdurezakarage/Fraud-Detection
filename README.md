@@ -2,9 +2,9 @@
 
 A comprehensive machine learning system for detecting fraudulent transactions using advanced data analysis, feature engineering, and machine learning techniques.
 
-## 🎯 Project Overview
+## �� Project Overview
 
-This project implements a complete fraud detection pipeline that processes transaction data, performs exploratory data analysis, engineers relevant features, and builds machine learning models to identify fraudulent activities. The system is designed to handle imbalanced datasets and provides comprehensive insights into fraud patterns.
+This project implements a complete fraud detection pipeline that processes transaction data, performs exploratory data analysis, engineers relevant features, and builds machine learning models to identify fraudulent activities. The system is designed to handle imbalanced datasets and provides comprehensive insights into fraud patterns with model explainability capabilities.
 
 ## ✨ Key Features
 
@@ -37,6 +37,13 @@ This project implements a complete fraud detection pipeline that processes trans
 - **Pipeline Creation**: Automated preprocessing pipelines
 - **Memory Optimization**: Efficient handling of large datasets
 
+### 🤖 **Machine Learning & Model Explainability**
+- **Model Training**: Advanced ML algorithms for fraud detection
+- **Model Evaluation**: Comprehensive performance metrics and validation
+- **SHAP Analysis**: Model interpretability and feature importance
+- **Model Persistence**: Saved models for production deployment
+- **Explainable AI**: Transparent model decision-making process
+
 ### 📊 **Advanced Analytics**
 - **Fraud Pattern Detection**: Identification of peak fraud hours and days
 - **Risk Scoring**: Geographic and temporal risk assessment
@@ -48,19 +55,26 @@ This project implements a complete fraud detection pipeline that processes trans
 ```
 Fraud-Detection/
 ├── 📁 data/                    # Data files and processed datasets
+├── 📁 models/                  # Trained models and features
+│   ├── 📄 best_model.joblib    # Best performing model
+│   └── 📄 model_features.joblib # Model feature definitions
 ├── 📁 src/                     # Source code modules
 │   ├── 📄 eda_analysis.py      # Exploratory Data Analysis
 │   ├── 📄 data_preprocessing.py # Data cleaning and preprocessing
 │   ├── 📄 data_transformation.py # Feature encoding and scaling
 │   ├── 📄 feature_enfineering.py # Feature engineering pipeline
 │   ├── 📄 data_merger.py       # Data merging utilities
+│   ├── 📄 model.py             # Machine learning model training
+│   ├── 📄 ModelExplainability.py # SHAP analysis and model interpretation
 │   └── 📄 __init__.py
 ├── 📁 notbooks/               # Jupyter notebooks for analysis
 │   ├── 📄 fraud_analysis.ipynb # Main fraud analysis notebook
 │   ├── 📄 data_merging.ipynb   # Data merging examples
 │   ├── 📄 data_transformation.ipynb # Data transformation examples
 │   ├── 📄 feature_engineeering.ipynb # Feature engineering examples
-│   └── 📄 dataProcess.ipynb    # Data processing examples
+│   ├── 📄 dataProcess.ipynb    # Data processing examples
+│   ├── 📄 model.ipynb          # Model training and evaluation
+│   └── 📄 model_interprablity.ipynb # Model explainability analysis
 ├── 📁 venv/                   # Virtual environment
 ├── 📄 requirements.txt        # Python dependencies
 ├── 📄 README.md              # This file
@@ -101,7 +115,6 @@ The project requires the following key packages:
 - **Visualization**: `matplotlib`, `seaborn`, `plotly`
 - **Development**: `jupyter`, `ipykernel`
 
-
 ## 🎯 Key Insights
 
 The system provides comprehensive insights into fraud patterns:
@@ -120,4 +133,11 @@ The system provides comprehensive insights into fraud patterns:
 - **User Behavior**: User-specific fraud indicators
 - **Amount Patterns**: Transaction value analysis
 
+## 🔧 Model Performance
+
+The system includes:
+- **Trained Models**: Pre-trained models saved in the `models/` directory
+- **Feature Engineering**: Comprehensive feature extraction pipeline
+- **Model Explainability**: SHAP-based model interpretation
+- **Performance Metrics**: Accuracy, precision, recall, F1-score, and ROC-AUC
 

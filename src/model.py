@@ -112,7 +112,7 @@ class FraudModelTrainer:
         best = max(self.results.items(), key=lambda x: (x[1]['auc_pr'] if x[1]['auc_pr'] is not None else 0, x[1]['f1_score']))
         return best[0], self.results[best[0]]
 
-    def save_best_model(self, output_path='models/best_model.joblib'):
+    def save_best_model(self, output_path='../models/best_model.joblib'):
         """Save the best-performing model and its feature names to disk in the models directory."""
         os.makedirs('models', exist_ok=True)
         best_name, _ = self.best_model()
