@@ -2,7 +2,7 @@
 
 A comprehensive machine learning system for detecting fraudulent transactions using advanced data analysis, feature engineering, and machine learning techniques.
 
-## 🎯 Project Overview
+## �� Project Overview
 
 This project implements a complete fraud detection pipeline that processes transaction data, performs exploratory data analysis, engineers relevant features, and builds machine learning models to identify fraudulent activities. The system is designed to handle imbalanced datasets and provides comprehensive insights into fraud patterns with model explainability capabilities.
 
@@ -101,6 +101,19 @@ Fraud-Detection/
    source venv/bin/activate
    ```
 
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## 📋 Dependencies
+
+The project requires the following key packages:
+
+- **Data Processing**: `pandas`, `numpy`
+- **Machine Learning**: `scikit-learn`, `imbalanced-learn`
+- **Visualization**: `matplotlib`, `seaborn`, `plotly`
+- **Development**: `jupyter`, `ipykernel`
 
 ## 🎯 Key Insights
 
@@ -127,5 +140,4 @@ The system includes:
 - **Feature Engineering**: Comprehensive feature extraction pipeline
 - **Model Explainability**: SHAP-based model interpretation
 - **Performance Metrics**: Accuracy, precision, recall, F1-score, and ROC-AUC
-
 
